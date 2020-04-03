@@ -44,6 +44,7 @@ public class BoardDaoMyBatis implements BoardDao{
 
     @Override
     public BoardDTO select(int seq) {
+        // BoardDao에서 seq를 사용해서 BoardDTO를 select한다.
         return sqlSessionTemplate.selectOne("select", seq);
     }
 
