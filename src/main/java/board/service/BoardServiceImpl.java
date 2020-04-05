@@ -37,7 +37,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void write(BoardDTO boardDTO) {
-        boardDao.insert(boardDTO)
+        boardDao.insert(boardDTO);
     }
 
     @Override

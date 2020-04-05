@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
 
     <jdbc:embedded-database id="dataSource" type="HSQL">
-        <jdbc:script location="classpath:BoardSchema.sql"></jdbc:script>
-        <jdbc:script location="classpath:BoardData.sql"></jdbc:script>
+        <jdbc:script location="classpath:BoardSchema.sql" />
+        <jdbc:script location="classpath:BoardData.sql" />
     </jdbc:embedded-database>
 
-    <!-- sqlSessionFactory을 Spring Bean으로 등록 -->
-    <!-- sqlSessionFactory 인터페이스를 구현하는 sqlSessionFactoryBean클래스 Bean 생성 (다양한 속성을 채워서 생성)-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:sqlmap/config/mybatis-config.xml"/>
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:sqlmap/config/mybatis-config.xml" />
         <property name="mapperLocations">
             <list>
                 <value>classpath:sqlmap/sqlmap-board.xml</value>
@@ -20,9 +21,7 @@
         </property>
     </bean>
 
-    <!-- sqlSessionTemplate을 Spring Bean으로 등록 -->
-    <!-- sqlSessionTemplate객체 생성시 sqlSessionFactory속성에 sqlSessionFactoryBean객체로 채워진다. (Singleton) -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-        <constructor-arg ref="sqlSessionFactory"/>
+        <constructor-arg ref="sqlSessionFactory" />
     </bean>
 </beans>
