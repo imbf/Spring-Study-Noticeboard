@@ -88,6 +88,13 @@
             <version>${org.hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -10,7 +10,7 @@ import java.util.List;
 public class BoardDaoImpl implements BoardDao{
     private SqlSessionTemplate sqlSessionTemplate;
 
-    @Autowired // sqlSessionTemplate Bean주입 (Sql을 맵핑하는 클라이언트를 설정하는 Autowired Setter이다.)
+    @Autowired // sqlSessionTemplate 객체 주입 (Sql을 맵핑하는 클라이언트를 설정하는 Autowired Setter이다.)
     public void setSqlMapClient(SqlSessionTemplate sqlSessionTemplate) {
         this.sqlSessionTemplate = sqlSessionTemplate;
     }

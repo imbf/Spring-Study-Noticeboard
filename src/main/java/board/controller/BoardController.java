@@ -3,8 +3,8 @@ package board.controller;
 import board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BoardController {
@@ -13,8 +13,10 @@ public class BoardController {
     private BoardService boardService;
 
     @RequestMapping(value = "/board/list")
-    @ResponseBody
-    public String list() {
-        return boardService.list().toString();
+    public String list(Model model) { // 모델에 대한 참조변수를 인자로써 추가
+        // 모델에 속성을 추가
+        model.addAttribute("boardList", boardService.list());
+        return "WEB-INF/board/list";   // DispatcherServlet이 뷰를 선정하는 힌트
     }
 }
+
