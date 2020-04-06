@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%--
-  Created by IntelliJ IDEA.
-  User: baejongjin
-  Date: 2020/04/06
-  Time: 7:45 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,7 +22,7 @@
                 <td>${board.cnt}</td>
             </tr>
         </c:forEach>
-        <a href="<c:url value="/board/list"/> ">새글</a>
     </table>
+    <a href="<c:url value="/board/list"/> ">새글</a>
 </body>
 </html>
