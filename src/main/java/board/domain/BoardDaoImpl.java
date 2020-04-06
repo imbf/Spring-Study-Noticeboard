@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BoardDaoMyBatis implements BoardDao{
+public class BoardDaoImpl implements BoardDao{
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Autowired // sqlSessionTemplate Bean주입 (Sql을 맵핑하는 클라이언트를 설정하는 Autowired Setter이다.)
