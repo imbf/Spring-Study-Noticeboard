@@ -4,6 +4,7 @@ import board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,6 +18,12 @@ public class BoardController {
         // 모델에 속성을 추가
         model.addAttribute("boardList", boardService.list());
         return "WEB-INF/board/list";   // DispatcherServlet이 뷰를 선정하는 힌트
+    }
+
+    @RequestMapping(value = "/board/read/{seq}")
+    public String read(Model model, @PathVariable int seq) {
+        model.addAttribute("boardDTO", boardService.read(seq));
+        return "/WEB-INF/board/read";
     }
 }
 
