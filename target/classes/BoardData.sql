@@ -14,7 +14,7 @@ INSERT INTO BOARD (title, content, writer, password, regDate, cnt)
 VALUES ('t5', 'c5', 'w1', 1234, '2013-09-09 14:21:12', 4);
 
 INSERT INTO BOARD (title, content, writer, password, regDate, cnt)
-VALUES ('t6', 'c5', 'w1', 1234, '2013-09-09 14:21:12', 5);
+VALUES ('t6', 'c6', 'w1', 1234, '2013-09-09 14:21:12', 5);
 
 INSERT INTO BOARD (title, content, writer, password, regDate, cnt)
-VALUES ('t7', 'c5', 'w1', 1234, '2013-09-09 14:21:12', 6);
+VALUES ('t7', 'c7', 'w1', 1234, '2013-09-09 14:21:12', 6);
