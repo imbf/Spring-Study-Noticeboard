@@ -59,10 +59,11 @@ public class BoardController {
         if(result.hasErrors()) {
             return "/board/edit";
         } else {
+            // 스프은 input 태그 가운데 pwd라는 이름을 가진 input 태그의 값을 자동으로 바인딩 해준다.
             if(boardDTO.getPassword() == pwd) {
                 boardService.edit(boardDTO);
                 sessionStatus.setComplete();
-                return "/board/list";
+                return "redirect:/board/list";
             }
         }
         model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
