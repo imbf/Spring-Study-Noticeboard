@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <th><label for="pwd">비밀번호</label></th>
-            <%-- form 태그를 사용하면 글을 등록할 때 입력했떤 비밀번호가 채워지기 때문에 input 태그를 사 --%>
+            <%-- form 태그를 사용하면 글을 등록할 때 입력했떤 비밀번호가 채워지기 때문에 input 태그를 사용 --%>
             <td><input type="password" id="pwd" name="pwd"/>${msg}</td>
         </tr>
     </table>

@@ -56,11 +56,11 @@ public class BoardController {
 
     @RequestMapping(value = "/board/edit/{seq}", method = RequestMethod.POST)
     public String edit(@Valid @ModelAttribute BoardDTO boardDTO, BindingResult result, int pwd, SessionStatus sessionStatus, Model model) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "/board/edit";
         } else {
             // 스프은 input 태그 가운데 pwd라는 이름을 가진 input 태그의 값을 자동으로 바인딩 해준다.
-            if(boardDTO.getPassword() == pwd) {
+            if (boardDTO.getPassword() == pwd) {
                 boardService.edit(boardDTO);
                 sessionStatus.setComplete();
                 return "redirect:/board/list";
@@ -68,5 +68,29 @@ public class BoardController {
         }
         model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
         return "/board/edit";
+    }
+
+    @RequestMapping(value = "/board/delete/{seq}", method = RequestMethod.GET)
+    public String delete(@PathVariable int seq, Model model) {
+        model.addAttribute("seq", seq);
+        return "/board/delete";
+    }
+
+    @RequestMapping(value = "/board/delete", method = RequestMethod.POST)
+    public String delete(int seq, int pwd, Model model) {
+        int rowCount;
+        BoardDTO boardDTO = new BoardDTO();
+        boardDTO.setSeq(seq);
+        boardDTO.setPassword(pwd);
+
+        rowCount = boardService.delete(boardDTO);
+
+        if (rowCount == 0) {
+            model.addAttribute("seq", seq);
+            model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
+            return "/board/delete";
+        } else {
+            return "redirect:/board/list";
+        }
     }
 }
