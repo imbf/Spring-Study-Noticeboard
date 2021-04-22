@@ -23,7 +23,7 @@
     <properties>
         <org.springframework-version>4.0.6.RELEASE</org.springframework-version>
         <hsqldb-version>1.8.0.10</hsqldb-version>
-        <mybatis-version>3.2.7</mybatis-version>
+        <mybatis-version>3.5.6</mybatis-version>
         <mybatis.spring-version>1.2.2</mybatis.spring-version>
         <junit.version>4.10</junit.version>
         <org.hamcrest.version>1.1</org.hamcrest.version>
