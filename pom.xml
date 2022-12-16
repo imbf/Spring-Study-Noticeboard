@@ -21,7 +21,7 @@
     </build>
 
     <properties>
-        <org.springframework-version>4.0.6.RELEASE</org.springframework-version>
+        <org.springframework-version>5.2.20.RELEASE</org.springframework-version>
         <hsqldb-version>1.8.0.10</hsqldb-version>
         <mybatis-version>3.2.7</mybatis-version>
         <mybatis.spring-version>1.2.2</mybatis.spring-version>
